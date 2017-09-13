@@ -173,7 +173,7 @@
                 </div>
             </div>
         {% else %}
-            {{ view_user.about|convert_text }}
+            {{ view_user.get_localized_profile().about|convert_text }}
         {% endif %}
     {% endif %}
     </div>

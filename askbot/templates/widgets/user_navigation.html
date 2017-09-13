@@ -10,7 +10,7 @@
     {% if settings.USE_ASKBOT_LOGIN_SYSTEM %}
          <a href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">{% trans %}sign out{% endtrans %}</a>
     {% endif %}
-{% elif settings.USE_ASKBOT_LOGIN_SYSTEM and not on_login_page %}
+{% elif not on_login_page %}
     {% include "widgets/login_link.html" %}
 {% endif %}
 {% if request.user.is_authenticated() and request.user.is_administrator() %}

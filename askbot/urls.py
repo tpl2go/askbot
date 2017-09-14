@@ -702,13 +702,13 @@ urlpatterns = patterns(
     url('^api/v1/questions/(?P<question_id>\d+)/$', views.api_v1.question, name='api_v1_question'),
 )
 
-if 'askbot.deps.django_authopenid' in settings.INSTALLED_APPS:
-    urlpatterns += (
-        url(
-            r'^%s' % pgettext('urls', 'account/'),
-            include('askbot.deps.django_authopenid.urls')
-        ),
-    )
+# if 'askbot.deps.django_authopenid' in settings.INSTALLED_APPS:
+#     urlpatterns += (
+#         url(
+#             r'^%s' % pgettext('urls', 'account/'),
+#             include('askbot.deps.django_authopenid.urls')
+#         ),
+#     )
 
 if 'avatar' in settings.INSTALLED_APPS:
     urlpatterns += (

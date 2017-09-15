@@ -38,6 +38,7 @@ urlpatterns += patterns('',
         'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT.replace('\\','/')},
     ),
+    url(r'', include('ucamwebauth.urls')),
 )
 
 if 'rosetta' in settings.INSTALLED_APPS:

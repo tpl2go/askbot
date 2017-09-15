@@ -1,4 +1,4 @@
-{% if unique_login_provider %}
+{# {% if unique_login_provider %}
     <form id="signin-form" method="post" action="{{ settings.LOGIN_URL }}">
         {{ macros.csrf_middleware_token(csrf_token) }}
         {{ login_form.next }}
@@ -19,3 +19,7 @@
     <a href="{{ settings.LOGIN_URL }}?next={{ request.path|clean_login_url|escape }}"
     >{% trans %}Hi there! Please sign in{% endtrans %}</a>
 {% endif %}
+#}
+
+<a href="{{ settings.LOGIN_URL }}">
+{% trans %}Raven Login{% endtrans %}</a>

@@ -19,7 +19,10 @@ AskbotMarkdownConverter.prototype.scheduleMathJaxRendering = function () {
         clearTimeout(this._timeout);
     }
     var renderFunc = function () {
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'previewer-2']);
+        var previewers = document.querySelectorAll('input[id^="previewer"]');
+        for (var i=0; i<previewers.length; i++){
+            MathJax.Hub.Queue(['Typeset', MathJax.Hub, previewers[i]]);
+        }
     };
     this._timeout = setTimeout(renderFunc, 500);
 };

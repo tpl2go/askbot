@@ -19,9 +19,22 @@ AskbotMarkdownConverter.prototype.scheduleMathJaxRendering = function () {
         clearTimeout(this._timeout);
     }
     var renderFunc = function () {
-        var previewers = document.querySelectorAll('input[id^="previewer"]');
+        // for previews
+        var previewers = document.getElementsByClassName("wmd-preview")
         for (var i=0; i<previewers.length; i++){
             MathJax.Hub.Queue(['Typeset', MathJax.Hub, previewers[i]]);
+        }
+
+        // for question and answer posts
+        var posts = document.getElementsByClassName("js-editable-content")
+        for (var i=0; i<posts.length; i++){
+            MathJax.Hub.Queue(['Typeset', MathJax.Hub, posts[i]]);
+        }
+
+        // for expanded posts
+        var anssnippets = document.getElementsByClassName("snippet")
+        for (var i=0; i<anssnippets.length; i++){
+            MathJax.Hub.Queue(['Typeset', MathJax.Hub, anssnippets[i]]);
         }
     };
     this._timeout = setTimeout(renderFunc, 500);

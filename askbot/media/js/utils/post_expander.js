@@ -72,6 +72,11 @@ PostExpander.prototype.getExpandHandler = function () {
                     snippet.hide();
                     snippet.html(data.post_html);
                     snippet.fadeIn();
+                    // Render Mathjax 
+                    if (askbot['settings']['mathjaxEnabled'] === true){
+                        var mjconverter = getAskbotMarkdownConverter();
+                        mjconverter.scheduleMathJaxRendering();
+                    }
                 }
             }
         });
